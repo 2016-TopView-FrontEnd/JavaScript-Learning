@@ -94,7 +94,7 @@
 
 所以啊，我们要时刻保持对知识的饥饿感！！！
 
-| Recommand | Type         | Description |
+| Recommend | Type         | Description |
 | ----      | ----         | ----        |
 | 5         | JS 框架      | React, Angular, Vue 等|
 | 5         | JavaScript   | ES2015      |

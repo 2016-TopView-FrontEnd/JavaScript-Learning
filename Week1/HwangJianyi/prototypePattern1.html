@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script> 
+// function classA() 
+// { 
+// this.a = 100; 
+// this.b = 200; 
+// this.c = 300; 
+
+// this.reset = function() 
+// { 
+// for(var each in this) 
+// { 
+// delete this[each]; 
+// } 
+// } 
+// } 
+// classA.prototype = new classA(); 
+
+// var a = new classA(); 
+// console.log(a.a); 
+// a.a *= 2; 
+// a.b *= 2; 
+// a.c *= 2;
+// classA.prototype.a = 1000; 
+// console.log(a.a); 
+// console.log(a.b); 
+// console.log(a.c); 
+// a.reset(); //调用reset方法将a的值恢复为默认值 
+// console.log(a.a); 
+// console.log(a.b); 
+// console.log(a.c); 
+
+
+
+
+   function SuperType(name){
+   	  this.name = name;
+   	  this.colors = ["red","blue","green"];
+   }
+
+   SuperType.prototype.sayName = function(){
+   	  console.log(this.name);
+   };
+
+   function SubType(name,age){
+      SuperType.call(this,name);//会使SuperType内部属性，出现在SubType内部
+      // this.name = name;
+      // this.colors = ["red","blue","green"];
+      this.age = age;
+   }
+   //JiChen
+   SubType.prototype = new SuperType();
+   SubType.prototype.constructor = SubType;
+   SubType.prototype.sayAge = function(){
+   	  console.log(this.age);
+   };
+
+   var ins1 = new SubType("aa",29);
+   ins1.colors.push("black");
+   // console.log(ins1.colors);
+   console.log(ins1.hasOwnProperty("name"));
+   console.log(ins1.hasOwnProperty("colors"));
+   function displayProp(obj){      
+        var names="";         
+        for(var name in obj){         
+           names+=name+": "+obj[name]+", "+"\n";    
+        }    
+        console.log(names);    
+    }
+    displayProp(ins1);  
+ 
+
+
+
+ //   var ins2 = new SubType("bb",27);
+ //   // console.log(ins2.colors);
+ //   function SuperType(name){
+ //        this.name = name;
+ //        this.colors = ["red","blue","green"];
+ //        console.log(this === window);
+ //    }
+ //    SuperType("zhang");
+ //    console.log(name);
+ //        console.log(window.name);
+
+
+ //    function f1(){};
+ // console.log(f1.prototype) //f1{}
+</script> 
+
+</body>
+</html>

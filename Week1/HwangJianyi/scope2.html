@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>scope属性</title>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload = function(){
+		// var x = 10;
+  //       function foo () {
+  //         console.log(x);
+  //       }
+  //       foo(); // 10
+  //       x=30;
+  //       function fun () {
+  //         var x = 20;
+  //         var foo1 = foo;
+  //         foo1();   // 10还是20？
+  //       }
+  //       fun();
+      var cc = "hi";
+        function aa(){
+	      
+		  bb();
+		  // function bb(){
+		  //   console.log(cc);
+	   //    }
+
+	    }
+	    function bb(){
+		  console.log(cc);
+	    }
+	    
+	    aa();	   
+
+
+        // 下面输出 undefined
+        function add(a, b) {
+           return 
+
+           a + b ;
+           	
+        }
+        console.log("a+b="+add(1, 2));
+
+	}
+</script>
+</body>
+</html>

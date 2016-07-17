@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>scope</title>
+</head>
+<body>
+   
+</body>
+<script type="text/javascript">
+   window.onload = function(){
+   	//全局和局部，函数自调
+   	var i = 0;
+   	function acbb(){
+   		i+=1;
+   		b = 10;
+   		b = b + i;
+   		var a = i ;
+   		console.log(b);
+   		if(i<3) acbb();
+        console.log(a+"--"+b);
+    }
+    // acbb();
+
+    //全局，函数互调
+    var i1 = 0;
+    function add1(){
+    	a = 1 ;
+    	dec1();
+    	console.log("add1="+ (b-a));
+    	b = 3;
+    	dec1();
+    }
+
+    function dec1(){
+    	b = 1;
+    	var a  = 10;
+    	console.log("dec="+ (b-a));
+    	a = 2;
+    }
+    
+    // add1();
+
+   var count = 0;
+   var count2 = 5;
+   function cctv(){
+   	count++;
+   	var a = count;
+   	b = count;
+   	// out1();
+   	console.log(a+"--"+b);
+   	if (count < 5) {cctv();}
+   	// console.log(a+"--"+b);
+   	out1();
+   	// out2();
+   }
+   function out1(){
+   	console.log(count2+"--"+b);
+    count2--;
+   }
+   function out2(){
+   	var b = 10;
+   	console.log(b);
+   }
+   // cctv();
+
+   //
+    var scope="global";  
+    function t(){  
+      console.log(scope);  
+      var scope="local"  
+      console.log(scope);  
+    }  
+    // t();  
+
+    // var name="global";  
+    //   if(true){  
+    //     var name="local";  
+    //     console.log(name)  
+    //   }  
+    // console.log(name); 
+
+    var name="global";
+    function tt(){  
+      console.log(name);
+      if(true){  
+        var name="local";  
+        console.log(name)  
+      }  
+      console.log(name);
+     }
+     // tt();
+    // console.log(name);
+    
+
+    var color = "blue";
+    function changColor(){
+    	if(color === "blue"){
+    		color = "red";
+    		console.log(color);
+    	}else{
+    		console.log(color);
+    		color = "yellow";
+    		console.log(color);
+    	}
+    	var color = "green";
+    }
+    // changColor();
+    // console.log(color);
+
+    var cc1 = "ab";
+    function fu1(){
+      var cc2 = "abc";
+      function fu2(){
+        var cc3 = "fff";
+        console.log(cc1+"--"+cc2+"--"+cc3);
+        cc1 = "ddd";
+        cc2 =  "eee";
+      }
+      fu2();
+      console.log(cc1+"--"+cc2);
+    }
+
+    // // fu1();
+    // var ii = 1;
+    // for (var ii = 0; ii < 3; ii++) {
+    //     var ii = 10;
+    //     console.log(ii);
+    // }
+    // console.log(ii);
+
+   }
+</script>
+</html>

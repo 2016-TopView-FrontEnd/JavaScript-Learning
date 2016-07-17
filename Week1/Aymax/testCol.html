@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>testCOL</title>
+	<link rel="stylesheet" href="./bootstrap.min.css">
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body > div > div {
+		height: 300px;
+	}
+
+	body > div > div:nth-child(3) {
+		height: 500px;
+	}
+
+	body > div > div:last-child {
+		height: 100px;
+	}
+
+	.red {
+		background-color: red;
+	}
+
+	.blue {
+		background-color: blue;
+	}
+
+	.pink {
+		background-color: pink;
+	}
+
+	.black {
+		background-color: black;
+	}
+
+</style>
+</head>
+<body>
+	<div class="row">
+		<div class="red col-lg-6 col-md-3 col-xs-12"></div>
+		<div class="blue col-lg-6 col-md-9 col-xs-12"></div>
+		<div class="pink col-lg-12 col-md-12 col-xs-12"></div>
+		<div class="black col-lg-5 col-lg-offset-6 col-md-12 hidden-md col-xs-12"></div>
+	</div>
+</body>
+</html>

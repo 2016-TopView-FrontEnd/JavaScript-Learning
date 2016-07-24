@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+  html {
+    height: 150%
+  }
+
+  #div1 {
+    width: 100px;
+    height: 100px;
+    background-color: #555;
+    position: absolute;
+    cursor: move;
+  }
+
+  #size {
+    width: 10px;
+    height: 10px;
+    background: red;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
+  }
+  </style>
+  <script>
+  window.onload = function() {
+    drag('div1');
+    size('size');
+  };
+
+  function size(id) {
+    var size = document.getElementById(id);
+    size.onmousedown = function(ev) {
+      var oEvent = ev || event;
+      var oriX = oEvent.pageX;
+      var oriY = oEvent.pageY;
+      var oriH = size.parentNode.offsetHeight;
+      var oriW = size.parentNode.offsetWidth;
+
+      prevent(oEvent);
+      cancelBub(oEvent);
+
+      document.onmousemove = function(ev) {
+        var oEvent = ev || event;
+        var addX = oEvent.pageX - oriX; //  addX 在增加，offsetHeight也在增加
+        var addY = oEvent.pageY - oriY;
+
+        size.parentNode.style.height = oriH + addY + 'px';
+        size.parentNode.style.width = oriW + addX + 'px';
+        this.onmouseup = function() {
+          this.onmousemove = this.onmouseup = null;
+        }
+      }
+    }
+  }
+
+  function prevent(oEvent) {
+    if (oEvent.preventDefault) {
+      oEvent.preventDefault();
+    } else {
+      oEvent.returnValue = false;
+    }
+  }
+
+  function cancelBub(oEvent) {
+    if (oEvent.stopPropagation) {
+      oEvent.stopPropagation();
+    } else {
+      oEvent.cancelBubble = true;
+    }
+  }
+
+  function drag(id) {
+    var oDiv = document.getElementById(id);
+
+    oDiv.onmousedown = function(ev) {
+      var oEvent = ev || event;
+      var scrollTop = document.documentElement.scrollTop + document.body.scrollTop;
+      var disX = oEvent.clientX - oDiv.offsetLeft;
+      var disY = oEvent.clientY + scrollTop - oDiv.offsetTop;
+
+      if (oEvent.preventDefault) {
+        oEvent.preventDefault();
+      } else {
+        oEvent.returnValue = false;
+      }
+
+
+      document.onmousemove = function(ev) {
+        var oEvent = ev || event;
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        var l = oEvent.clientX - disX;
+        var t = (oEvent.clientY + scrollTop) - disY;
+
+        if (l < 0) {
+          l = 0;
+        } else if (l > document.documentElement.clientWidth - oDiv.offsetWidth) {
+          l = document.documentElement.clientWidth - oDiv.offsetWidth;
+        }
+
+        if (t < 0) {
+          t = 0;
+        }
+
+        oDiv.style.left = l + 'px';
+        oDiv.style.top = t + 'px';
+      };
+
+      document.onmouseup = function() {
+        document.onmousemove = null;
+        document.onmouseup = null;
+      };
+    };
+  }
+  </script>
+</head>
+
+<body>
+  <p>aaaaaaaa</p>
+  <div id="div1">
+    <div id="size"></div>
+  </div>
+</body>
+
+</html>

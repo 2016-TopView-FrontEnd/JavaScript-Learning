@@ -12,7 +12,7 @@
  window.localStorage.k='123';
  ```
  
-- localStore的使用
+- localStorage的使用
 ```
 localStorage.a = 3; // 设置a为'3'
 localStorage['a'] = 'sfsf'; // 设置a为'sfsf'，覆盖上面的值

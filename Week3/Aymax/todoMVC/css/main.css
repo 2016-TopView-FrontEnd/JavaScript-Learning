@@ -1,0 +1,387 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: "微软雅黑";
+	transition: all 1s;
+}
+
+.show {
+	transition: all 1s;
+	animation: show  1s both;
+}
+
+body {
+	min-width: 360px;
+	/*animation: showScale 1s both;*/
+}
+
+.todo {
+	margin: 10vh auto;
+	width: 80vw;
+	min-width: 250px;
+	max-width: 360px;
+}
+
+.todo > h1 {
+	text-align: center;
+	color: #0094DB;
+	font-size: 50px;
+	font-family: "微软雅黑";
+	margin-bottom: 10px;
+}
+
+#itemInput {
+	box-sizing: border-box;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 100%;
+	height: 30px;
+}
+
+#itemContainer {
+	animation: showSlideDown 0.8s 0.4s both;
+}
+
+.item {
+	box-sizing: border-box;
+	/*height: 21px;*/
+	list-style-type: none;
+	width: 100%;
+	padding-top: 6px;
+	/*padding-bottom: 6px;*/
+	border-bottom: 1px dashed #a7a7a7; 
+	/*overflow: hidden;*/
+	/*padding-top: 21px;*/
+
+	transition: all 1s;
+	animation: showItem 0.5s both;
+}
+
+.item:last-child {
+	border-bottom: 1px hidden #a7a7a7; 
+}
+
+.item:hover {
+	background-color: #fff;
+}
+
+
+.clearFloat {
+			clear: both;
+		}
+
+.slideCheckbox {
+	display: inline-block;
+	background-color: #fff;
+	border-radius: 25px;
+	width: 42px;
+	height: 19px;
+	border: solid 1px #A7A7A7;
+	/*clear: both;*/
+	float: left;
+	
+}
+
+.slideCheckbox > input {
+	display: none;
+}
+
+.slidePoint {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: #0094DB;
+	position: relative;
+	top: -3px;
+	left: -1px;
+	cursor: pointer;	/*改变鼠标光标*/
+	transition: all 0.3s ;
+
+	opacity: 0;
+
+	animation: showPoint 0.5s 0.5s both;
+}
+
+.slideCheckbox > input:checked + label {
+	/*background-color: red;*/
+	left: 18px;
+}
+
+.itemTitle {
+	height: 21px;
+	width: 50vw;
+	min-width: 150px;
+	max-width: 250px;
+	overflow: hidden;
+	text-overflow: ellipsis;  /*省略号*/
+	color: #313131;
+	display: inline-block;
+	padding-left: 10px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.itemTitleCheckbox {
+	height: 0;
+	width: 0;
+}
+
+.itemTitleCheckbox:checked ~ .slidePanel{
+	height: 100px;
+	margin-bottom: 10px;
+	/*border: 1px solid #A7A7A7;*/
+	/*border: 1px solid #4C8BF5;*/
+}
+
+.itemTitleCheckbox:checked ~ .slidePanel > .color-change-btn {
+	transform: scale(1) rotate(360deg);
+}
+
+.slidePanel {
+	display: flex;
+	align-items: center;
+	height: 0;
+	margin-top: 6px;
+	overflow: hidden;
+	/*background-color: #4C8BF5;*/
+	border-radius: 5px;
+	padding-left: 61px;
+	-webkit-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.slidePanel > textarea {
+	display: inline-block;
+	justify-content: space-around;
+	flex-grow: 3;
+	width: 130px;
+	resize: none;
+	padding: 8px;
+	/*scroll-base-color: red;*/
+}
+
+.color-change-btn {
+	display: inline-block;
+	margin-left: 10px;
+
+	vertical-align: middle;
+	height: 32px;
+	width: 32px;
+	background-color: #4B8BF5;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 50%;
+	line-height: 32px;
+	text-align: center;
+
+	transform: scale(0.1) rotate(180deg);
+	transition: all 0.5s;
+}
+
+.color-change-btn::before {
+	content: "edit";
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+
+.color-change-btn[data-status="1"]::before {
+	content: "save";
+}
+
+.color-change-btn[data-status="1"] {
+	background-color: #46F2FB;
+	
+}
+
+.x-manBtnContainer {
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+/*			position: relative;
+	top: -5px;*/
+	float: right;
+}
+
+.x-manBtnContainer > div > div {
+	width: 100%;
+	height: 100%;
+}
+
+.x-manBtnContainer > div {
+	width: calc(100% - 2px);
+	height: calc(100% - 2px);
+	border: 1px solid #fff;
+}
+
+.x-manBtnContainer > div:last-child {
+	position: relative;
+	top: -100%;
+}
+
+.item:hover .hr1 ,.hr1:hover{
+	animation: x-manBtn1 1s ease both;
+}
+
+.item:hover .hr2 ,.hr2:hover{
+	animation: x-manBtn2 1s ease both;
+}
+
+
+.itemPionts {
+	clear: both;
+}
+
+.itemText {
+	padding-left: 8px;
+}
+
+.itemDel {
+	display: block !important;
+	float: right;
+	width: 15px;
+	height: 15px;
+	margin-top: 1.85px;
+}
+
+.item:hover .hr1 {
+	animation: x-manBtn1 1s ease both;
+}
+
+.item:hover .hr2 {
+	animation: x-manBtn2 1s ease both;
+}
+
+.btn-group-1, .btn-group-2 {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.btn-group-1 {
+	height: 30px;
+}
+
+.btn-group-2 {
+	flex-direction: column;
+	height: 60px;
+}
+
+.a_clear {
+	text-decoration: none;
+}
+
+.a_btn {
+	height: 22px;
+	line-height: 22px; /*行高等于容器高度，实现文字垂直居中*/
+	font-size: 13px;
+	font-family: "微软雅黑";
+	color: #fff;
+	background-color: #0094DB;
+	border-radius: 2px;
+}
+
+.btn-group-1 > a {
+	text-align: center;
+	flex-grow: 2;
+	margin-left: 5px;
+}
+
+.btn-group-1 > a:first-child {
+	flex-grow: 1;
+	margin-left: 0;
+}
+
+
+.btn-group-2 > a {
+	width: 100%;
+	text-align: center;
+}
+
+
+@keyframes x-manBtn1 {
+	30% {
+		margin-top: 40%;
+		height: 20%;
+		background-color: red;
+	}
+	100% {
+		margin-top: 40%;
+		height: 20%;
+		transform: rotateZ(45deg);
+		background-color: red;
+	}
+} 
+
+@keyframes x-manBtn2 {
+	30% {
+
+		margin-top: 40%;
+		height: 20%;
+		background-color: red;
+	}
+	100% {
+		margin-top: 40%;
+		height: 20%;
+		transform: rotateZ(-45deg);
+		background-color: red;
+	}
+}
+
+@keyframes showScale {
+	from {
+		opacity: 0;
+		transform: scale(0);
+	}
+	to { 
+		opacity: 1;
+	}
+}
+
+@keyframes showSlideDown {
+	from { 
+		height: 0;
+	}
+	to { 
+		
+	}
+}
+
+@keyframes showItem {
+	0%{
+		opacity: 0;
+		transform: translateX(60%) scale(0.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes showPoint {
+	0% {
+		opacity: 0;
+		transform: translateY(-300%);
+	}
+	25% {
+		transform: translateY(-50%);
+	}
+	50% {
+		transform: translateY(10%);
+	}
+	70% {
+		transform: translateY(-10%);
+	}
+	80% {
+		transform: translateY(10%);
+	}
+	88% {
+		transform: translateY(-5%);
+	}
+	100% {  
+		opacity: 1;
+	}
+}

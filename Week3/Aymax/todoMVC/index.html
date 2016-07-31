@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todoMVC</title>
+	<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+	<div class="todo">
+		<h1 >Todo</h1>
+		<!-- item input -->
+		<form action="">
+			<!-- <input id="selectAll" type="checkbox"> -->
+			<input id="itemInput" type="text" placeholder="What to do?">	
+		</form>
+		<!-- item list -->
+		<ul id="itemContainer"></ul>
+		<!-- buttons -->
+		<div class="btn-group-1">                                                                        
+			<a class="itemFilter a_clear a_btn" href="#" title="0">All</a>
+			<a class="itemFilter a_clear a_btn" href="#" title="1">Actived</a>
+			<a class="itemFilter a_clear a_btn" href="#" title="2">Completed</a>
+		</div>
+		<div class="btn-group-2">
+			<a class="a_clear a_btn" href="#" id="clearCompleted">clearCompleted</a>
+			<a class="a_clear a_btn" href="#" id="clearAll">clearAll</a>
+		</div>
+
+		<!-- btn to clone -->
+		<div class="x-Btn x-manBtnContainer" id="x-Btn">
+			<div><div class="hr1"></div></div>
+			<div><div class="hr2"></div></div>
+		</div>
+	</div>
+
+	<script src="./js/tools.js"></script>
+	<script src="./js/model.js"></script>
+	<script src="./js/view.js"></script>
+	<script src="./js/control.js"></script>
+	<script src="./js/main.js"></script>
+</body>
+</html>

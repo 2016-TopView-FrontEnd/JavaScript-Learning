@@ -1,0 +1,160 @@
+* {
+	font-family: '微软雅黑';
+}
+
+
+body {
+	background-color: rgba(0, 0, 1, 0.87);
+	min-width: 800px;
+	min-height: 600px;
+	position: relative;
+	padding: 1px;
+}
+
+div {
+	overflow: hidden;
+	border-radius: 10%;
+	background-color: white;
+	margin: auto;
+	margin-top: 35px;
+	width: 75%;
+	min-height: 200px;
+	text-align: center;
+	padding: 10px;
+	animation: show 0.5s 1;
+}
+
+header {
+	font-size: 3.8em;
+	font-weight: bold;
+	color: rgb(24, 95, 27);
+	margin-top: 30px;
+}
+
+
+@keyframes show {
+	0% {margin-top: 0px;opacity: 0;}
+	100% {margin-top: 35px;opacity: 1;}
+}
+
+#wel {
+	font-size: 1.2em;
+	margin-left: 3%;
+	margin-top: 15px;
+	color: white;
+	animation: showL 0.5s 1;
+}
+
+@keyframes showL {
+	0% {margin-left: -3%;opacity: 0;}
+	100% {margin-left: 3%;opacity: 1;}
+}
+
+body>button {
+	padding: 10px;
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	font-size: 1.5em;
+	top: 0%;
+	right: 2%;
+	animation: showR 0.5s 1;
+	background-color: rgb(24, 95, 27);
+	color: white;
+	border-radius: 15%;
+	border-color: rgb(24, 95, 27);
+}
+
+@keyframes showR {
+	0% {right: 0%;opacity: 0;}
+	100% {right: 2%;opacity: 1;}
+}
+
+body>div>button {
+	width: 100px;
+	height: 35px;
+	font-size: 1em;
+	overflow: hidden;
+	margin: 10px;
+	margin-bottom: 30px;
+	border-radius: 10%;
+	background-color: rgb(24, 95, 27);
+	border-color: rgb(24, 95, 27);
+	color: white;
+}
+
+div>[type='text'] {
+	margin-top: 10px;
+	height:50px;
+	font-size:1.8em;
+	display: inline-block;
+}
+
+div>ul {
+	list-style: none;
+	width: 490px;
+	margin: auto;
+	text-align: left;
+}
+
+div>ul>li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color:white;
+	color: rgba(0, 0, 1, 0.87);
+	padding: 3px;
+	overflow: hidden;
+	font-size: 1.2em;
+	transition: all 0.5s;
+	animation: slideShow 1s 1;
+	position: relative;
+}
+
+@keyframes slideShow {
+	0% {margin-top: -10px;}
+	100% {margin-top: 10px;}
+}
+
+li>label {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	border-radius: 50%;
+	background-color: white;
+	color: white;
+	font-size: 2em;
+	transition: all 0.5s;
+	border: dotted 0.1px #FF0;
+	left: -2%;
+	top: 50%;
+	margin-top: -20px;
+	padding: 1px;
+}
+
+li>button {
+	position: absolute;
+	top: 30%;
+	right: 0%;
+	width: 40px;
+}
+
+li:hover>button {
+	display: inline-block;
+}
+
+.comple {
+	opacity: 0.5;
+	text-decoration: line-through;
+}
+
+.imcom {
+	opacity: 1.0;
+}
+
+.display {
+	display: none;
+}
+
+.displays {
+	display: block;
+}

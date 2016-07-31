@@ -1,0 +1,88 @@
+body {
+	background-color: rgba(0, 0, 1, 0.87);
+	min-width: 800px;
+	height: 600px;
+	position: relative;
+}
+
+div {
+	background-color: transparent;
+	width: 600px;
+	height: 350px;	
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+
+#loginW {
+	border-bottom-left-radius: 45%;
+	border-top-left-radius: 10%;
+	border-bottom-right-radius: 10%;
+	border-top-right-radius: 45%;
+	background-color: white;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: -50%;
+	top: -50%;
+	animation:show 0.5s 1;
+}
+
+@keyframes show {
+	0%{top: -75%;opacity: 0;left: -25%;}
+	100%{top: -50%;opacity: 1;left: -50%;}
+}
+
+#signW {
+	border-bottom-left-radius: 10%;
+	border-top-left-radius: 45%;
+	border-bottom-right-radius: 45%;
+	border-top-right-radius: 10%;
+	background-color: white;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: -50%;
+	top: -50%;
+	animation:Show 0.5s 1;
+}
+
+@keyframes Show {
+	0%{top: -75%;opacity: 0;left: -75%;}
+	100%{top: -50%;opacity: 1;left: -50%;}
+}
+
+header {
+	font-size: 2.7em;
+	font-weight: bold;
+	color: rgb(24, 95, 27);
+	margin-top: 5%;
+	margin-bottom: 8%;
+}
+
+label {
+	font-size: 1.5em;
+	color: rgb(24, 95, 27);
+	margin-right: 2%;
+	margin-bottom: 2%;
+}
+
+input[type=text],input[type='password'] {
+	font-size: 1.3em;
+	width: 30%;
+	height: 8%;
+	margin-bottom: 2%;
+}
+
+button {
+	font-size: 1.3em;
+	width: 15%;
+	height: 10%;
+	margin: 3%;
+}
+
+#signW {
+	display: none;
+}

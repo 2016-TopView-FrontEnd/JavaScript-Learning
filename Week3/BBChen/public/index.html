@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>JSONP and CORS</title>
+    <script src='./jquery-3.1.0.js'></script>
+  </head>
+  <body>
+
+    <!-- Form表单 -->
+<!--     <form action="http://localhost:1111/getResponse.do" method="post" >
+      <p>客户名称: <input type="text" name="CustomerName" style="width: 300px" /></p>
+      <p>客户电话: <input type="text" name="CustomerTel" style="width: 300px" /></p>
+      <p><input type="submit" value="提交" /></p>
+    </form> -->
+
+    <script>
+
+      //AJAX
+      function getJson(jsonName,callback) {
+         var client = new XMLHttpRequest();
+         client.onreadystatechange = function() {
+           if(client.readyState == 4) {
+             if(client.status >= 200 && client.status <= 304) {
+               var data = client.responseText;
+               var dataRes = JSON.parse(data);
+               callback(dataRes);
+             }else {
+               console.log(client.status);
+             }
+           }
+         };
+         client.open('GET', jsonName, true);
+         client.send(null);
+       } 
+      getJson(
+       './jsonData.json',
+       // 'file:///F:/front-end/frame/NodeJs/JSONP/public/jsonData.json',
+       function showQ(data) {
+         console.log(data);
+      })       
+
+      // CORS
+      // $(document).ready(function(){
+      //  $.post(
+      //    'http://localhost:1111/getResponse.do', 
+      //    {
+      //      'name': 'BBChen'
+      //    },
+      //    function(res) {
+      //      console.log('Cross-origin！', res.data, '!!!')
+      //    },
+      //    'json' 
+      //  )
+
+      // }) 
+
+
+
+
+      /*JSONP callBack*/
+      // function getData(res) {
+      //  console.log('Cross-origin！ Hello ', res.data, '!!!');
+      // }
+    </script> 
+
+    <!-- JSONP   -->
+<!--    <script src='http://localhost:1111/getJSONPResponse.do?callBack=getData'></script> -->
+
+  </body>
+</html>
